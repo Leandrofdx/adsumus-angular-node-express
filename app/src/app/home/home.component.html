@@ -1,0 +1,13 @@
+<section  class="container">
+	<div class="row d-flex justify-content-md-center">
+		<div *ngFor="let page of pages" class="card" style="width: 15rem;" [@efect]="state">
+			<div class="card-body">
+				<h5 class="card-title">{{page.name | textLess:28}}</h5>
+				<p class="card-text">{{page.description | textLess:40}}</p>
+				<div class="d-flex justify-content-around">
+					<a [routerLink]="['/pages', page.slug]" class="btn btn-outline-warning">Acessar Página</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

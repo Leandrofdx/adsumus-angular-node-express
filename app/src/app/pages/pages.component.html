@@ -1,0 +1,162 @@
+<section  class="container">
+	<div class="row justify-content-md-center">
+
+		<div class="col-md-4 box">
+
+			<a class="return" [routerLink]="['/']">Voltar</a>
+			<div class="text-left description">
+				<p><span class="strong">Informe</span> os dados da página</p>
+			</div>
+			<div *ngIf="activeForm; else FormEdit" >
+				<form [formGroup]="FormAddPage" novalidate (ngSubmit)="generatePage()" [@efect]="state">
+					<div class="form-group">
+						<label for="Nome">Nome:</label>
+						<input class="form-control" formControlName="name" placeholder="Nome" autocomplete="off" >
+					</div>
+					<div class="form-group">
+						<label for="slug">Slug:</label>
+						<input type="text" class="form-control" id="slug" formControlName="slug" placeholder="Slug">
+					</div>
+					<div class="form-group">
+						<label for="titulo">Titulo:</label>
+						<input type="text" class="form-control" id="titulo"  formControlName="title" placeholder="Título">
+					</div>
+					<div class="form-group">
+						<label for="descricao">Descrição:</label>
+						<input type="text" class="form-control" id="descricao"  formControlName="description" placeholder="Descrição">
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" placeholder="Palavras Chaves" #keyword class="form-control" aria-label="Text input with segmented dropdown button">
+							<div class="input-group-append">
+								<button type="button" class="btn btn-outline-secondary" (click)="validate(keyword, 'keyword')">Adicionar</button>
+								<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									
+								</button>
+								<div class="dropdown-menu">
+									<div class="" *ngIf="keywords.key.length >= 1; else keynull">
+										<a class="dropdown-item" *ngFor="let key of keywords?.key" (click)="remove(key, 'keyword')">
+											<span class="key">
+												{{ key }}
+											</span>
+											<img src="assets/imagens/svg/trashcan.svg" alt="">
+										</a>	
+									</div>
+									<ng-template #keynull>
+										<a class="dropdown-item">Sem palavras chaves</a>	
+									</ng-template>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="form-group">
+						<div class="input-group">
+							<input type="text" placeholder="Tags" #tag class="form-control" aria-label="Text input with segmented dropdown button">
+							<div class="input-group-append">
+								<button type="button" class="btn btn-outline-secondary" (click)="validate(tag, 'tag')">Adicionar</button>
+								<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+									
+								</button>
+								<div class="dropdown-menu">
+									<div class="" *ngIf="tags.key.length >= 1; else tagnull ">
+										<a class="dropdown-item" *ngFor="let key of tags?.key" (click)="remove(key, 'tag')">
+											<span class="key">
+												{{ key }}
+
+											</span>
+											<img src="assets/imagens/svg/trashcan.svg" alt="">
+										</a>	
+									</div>
+									<ng-template #tagnull>
+										<a class="dropdown-item">Sem tags</a>	
+									</ng-template>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div class="form-group">
+						<button type="submit" class="btn btn-block btn-red"  [disabled]="!FormAddPage.valid">Gerar Páginas</button>
+					</div>
+				</form>
+			</div>
+
+			<ng-template #FormEdit>
+				<div *ngIf="page != undefined">
+					<form [formGroup]="FormAddPage" novalidate (ngSubmit)="alterPage()" [@efect]="state">
+						<div class="form-group">
+							<label for="Nome">Nome:</label>
+							<input class="form-control" [(ngModel)]="page.name" formControlName="name" placeholder="Nome" autocomplete="off" >
+						</div>
+						<div class="form-group">
+							<label for="slug">Slug:</label>
+							<input type="text"  disabled="" class="form-control" id="slug" [(ngModel)]="page.slug" formControlName="slug" placeholder="Slug">
+						</div>
+						<div class="form-group">
+							<label for="titulo">Titulo:</label>
+							<input type="text" class="form-control" id="titulo"  [(ngModel)]="page.title" formControlName="title" placeholder="Título">
+						</div>
+						<div class="form-group">
+							<label for="descricao">Descrição:</label>
+							<input type="text" class="form-control" id="descricao" [(ngModel)]="page.description"  formControlName="description" placeholder="Descrição">
+						</div>
+						<div class="form-group">
+							<div class="input-group">
+								<input type="text" placeholder="Palavras Chaves" #keyword class="form-control" aria-label="Text input with segmented dropdown button">
+								<div class="input-group-append">
+									<button type="button" class="btn btn-outline-secondary" (click)="validate(keyword, 'keyword')">Adicionar</button>
+									<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+									</button>
+									<div class="dropdown-menu">
+										<div class="" *ngIf="keywords.key.length >= 1; else keynull ">
+											<a class="dropdown-item" *ngFor="let key of keywords?.key" (click)="remove(key, 'keyword')">
+												<span class="key">
+													{{ key }}
+												</span>
+												<img src="assets/imagens/svg/trashcan.svg" alt="">
+											</a>	
+										</div>
+										<ng-template #keynull>
+											<a class="dropdown-item">Sem palavras chaves</a>	
+										</ng-template>
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="form-group">
+							<div class="input-group">
+								<input type="text" placeholder="Tags" #tag class="form-control" aria-label="Text input with segmented dropdown button">
+								<div class="input-group-append">
+									<button type="button" class="btn btn-outline-secondary" (click)="validate(tag, 'tag')">Adicionar</button>
+									<button type="button" class="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+									</button>
+									<div class="dropdown-menu">
+										<div class="" *ngIf="tags.key.length >= 1; else tagnull ">
+											<a class="dropdown-item" *ngFor="let key of tags?.key" (click)="remove(key, 'tag')">
+												<span class="key">
+													{{ key }}
+												</span>
+												<img src="assets/imagens/svg/trashcan.svg" alt="">
+											</a>	
+										</div>
+										<ng-template #tagnull>
+											<a class="dropdown-item">Sem tags</a>	
+										</ng-template>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="form-group">
+							<button type="submit" class="btn btn-block btn-red"  [disabled]="!FormAddPage.valid">Salvar Alterações</button>
+							<button type="button" class="btn btn-block btn-red" [disabled]="!FormAddPage.valid" (click)="removePage(page.slug)">Excluir</button>
+						</div>
+					</form>
+				</div>
+			</ng-template>
+		</div>
+	</div>
+</section>

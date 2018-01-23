@@ -1,0 +1,130 @@
+@import url("font.css");
+@import url("resets.css");
+
+
+body {
+	font: normal 100% SF-Pro-Display-Regular, arial;
+	background: #f8f8f8;
+	color: #2b2b2b;
+}
+
+header {
+	width: 100%;
+	display: block;
+	padding: 20px 0;
+}
+
+header h1 {
+	display: none;
+}
+
+header .logo {
+	width: 197px;
+	height: 56px;
+	margin: 0 auto;
+	display: block;
+}
+
+header .logo img {
+	display: block;
+}
+
+section {
+	display: block;
+	width: 100%;
+}
+
+section .box {
+	background: #fff;
+	position: relative;
+	padding: 12px 12px 0 12px;
+	box-shadow:  0px 0px 2px #ccc;
+}
+
+section .return {
+	float: right;
+}
+
+section .page .strong {
+	font-family: SF-Pro-Text-Bold;
+}
+
+section .return strong {
+	width: 50px;
+}
+
+
+section .figure {
+	margin-bottom: 10px;
+	width: 100%;
+	text-align: center;
+}
+section .page-description {
+	font-size: 16px;
+	margin-bottom: 30px;
+}
+
+.strong {
+	font-weight: bold;
+}
+
+.adress {
+	margin-bottom: 30px;
+	border: 1px solid #ccc;
+	padding: 15px;
+}
+.adress li {
+	margin-bottom: 10px;
+}
+
+.color-button-red-dark {
+	background: #af0404;
+	color: #fff;
+	font-family: SF-Pro-Display-Light;
+}
+
+.card {
+	background: #3c0404;
+	margin: 5px;
+	color: #f68f04;
+}
+
+.btn-red {
+	background: #380000;
+	color: #fff;
+	font-family: SF-Pro-Display-Light;
+}
+
+.description {
+	font-family: SF-Pro-Display-Regular;
+	margin-bottom: 20px;
+}
+.card-text {
+	font-family: 'SF-Pro-Display-Ultralight';
+	font-size: 1.2rem;
+	margin-bottom: 20px;
+}
+
+.card-title {
+	font-family: 'SF-Pro-Text-Bold-Display';
+	font-size: 1.3rem;
+}
+
+.list-group-item.active {
+	background: #380000;
+	border-color: #af0404;
+}
+
+footer .add-page {
+	z-index: 99;
+	width: 100%;
+	font-family: SF-Pro-Display-Light;
+	font-size: 1.3rem;
+	position: fixed;
+	bottom: 0;
+	height: 50px;
+	color: #FFC107;
+	box-shadow:  0px 0px 2px #ccc;
+	background: #3C0404;
+	border: 0;
+}
