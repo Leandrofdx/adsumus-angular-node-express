@@ -8,10 +8,12 @@ Ter a porta 3000 disponivel ou alterar o servidor para usar outra.
 # adsumus-angular-node-express/server
 3.	Execute o comando
 # npm install
+
 4.	Execute o comando no terminal
 # node server
 ps: se tudo ocorrer bem aparecerá Servidor rodando na porta :3000
 Para acessar basta digitar no browser http://localhost:3000 – não feche o terminal
+
 5.	Abra outro terminal e navegue até a pasta
 # adsumus-angular-node-express/app
 
